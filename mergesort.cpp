@@ -47,7 +47,7 @@ void mergesort_parallel(int* A, int* temp, long lo, long hi) {
 }
 
 void mergesort_parallel_wrapper(int* A, long N) {
-    std::vector<int> temp(N);
+    vector<int> temp(N);
     #pragma omp parallel
     {
         #pragma omp single

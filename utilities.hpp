@@ -3,7 +3,9 @@
 
 #include <vector>
 
-std::vector<int> generate_random_data(long N);
+using namespace std;
+
+vector<int> generate_random_data(long N);
 void test_scalability();
 
 #endif // UTILITIES_H

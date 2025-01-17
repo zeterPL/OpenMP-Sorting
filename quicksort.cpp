@@ -10,10 +10,10 @@ long partition(int* A, long lo, long hi) {
     for (long j = lo; j <= hi - 1; j++) {
         if (A[j] < pivot) {
             i++;
-            std::swap(A[i], A[j]);
+            swap(A[i], A[j]);
         }
     }
-    std::swap(A[i + 1], A[hi]);
+    swap(A[i + 1], A[hi]);
     return i + 1;
 }
 
