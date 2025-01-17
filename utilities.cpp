@@ -7,17 +7,29 @@
 #include <ctime>
 #include <algorithm>
 
-vector<int> generate_random_data(long N) {
+vector<int> generate_random_data(long N)
+{
     vector<int> data(N);
     srand(std::time(nullptr));
-    generate(data.begin(), data.end(), []() { return std::rand(); });
+    generate(data.begin(), data.end(), []()
+             { return std::rand(); });
     return data;
 }
 
-void test_scalability() {
+void printX(int *vector, int x)
+{
+    for (int i = 0; i < x; i++)
+    {
+        cout << vector[i] << ", ";
+    }
+}
+
+void test_scalability()
+{
     const vector<long> sizes = {100000, 1000000, 10000000};
 
-    for (long N : sizes) {
+    for (long N : sizes)
+    {
         vector<int> data = generate_random_data(N);
 
         vector<int> copy = data;
@@ -30,6 +42,7 @@ void test_scalability() {
         auto end = chrono::high_resolution_clock::now();
         chrono::duration<double> seq_quicksort_time = end - start;
         cout << "Sequential QuickSort time: " << seq_quicksort_time.count() << " seconds\n";
+        printX(copy.data(), 10);
 
         // Równoległy QuickSort
         copy = data;
