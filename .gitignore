@@ -1,0 +1,4 @@
+*.o
+output_*
+error_*
+main
